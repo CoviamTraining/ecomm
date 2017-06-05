@@ -1,0 +1,16 @@
+com/coviam/ecomm/entity/Product.class
+com/coviam/ecomm/controller/ProductController.class
+com/coviam/ecomm/dao/CategoryRepository.class
+com/coviam/ecomm/entity/Merchant.class
+com/coviam/ecomm/controller/MerchantController.class
+com/coviam/ecomm/service/ProductServiceImpl.class
+com/coviam/ecomm/service/MerchantServiceImpl.class
+com/coviam/ecomm/service/CategoryService.class
+com/coviam/ecomm/EcommApplication.class
+com/coviam/ecomm/entity/Category.class
+com/coviam/ecomm/controller/CategoryController.class
+com/coviam/ecomm/dao/ProductRepository.class
+com/coviam/ecomm/service/ProductService.class
+com/coviam/ecomm/dao/MerchantRepository.class
+com/coviam/ecomm/service/CategoryServiceImpl.class
+com/coviam/ecomm/service/MerchantService.class

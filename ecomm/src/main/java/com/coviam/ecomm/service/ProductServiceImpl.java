@@ -6,6 +6,8 @@ import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,17 +38,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Object getProductNameImageRating(Long id) {
-        return productRepository.getproductNameImageRating(Math.toIntExact(id));
+    public Object getProductNameRating(Long id) {
+        return productRepository.getproductNameRating(id);
+    }
+
+    @Override
+    public List<String> getProductImages(Long id) {
+        String images = productRepository.getImages(id);
+        return Arrays.asList(images.split(","));
     }
 
     @Override
     public List<String> getMerchantList(Long id) {
-        return productRepository.getMerchantList(Math.toIntExact(id));
+        String merchants = productRepository.getMerchantList(id);
+        List<String> merchantsList = Arrays.asList(merchants.split(","));
+        return merchantsList;
     }
 
     @Override
     public String getDefaultMerchant(Long id) {
-        return productRepository.getDefaultMerchant(Math.toIntExact(id));
+        String merchants = productRepository.getMerchantList(id);
+        List<String> merchantsList = Arrays.asList(merchants.split(","));
+        return merchantsList.get(0);
     }
 }

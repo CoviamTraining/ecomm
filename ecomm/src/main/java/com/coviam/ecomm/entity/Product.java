@@ -37,13 +37,13 @@ public class Product implements Serializable {
     private int categoryid;
 
     @Column(name="imageurl",length = 50)
-    private List<String> imageurl;
+    private String imageurl;
 
     @Column(name = "rating", scale = 1, precision = 2)
     private double rating;
 
     @Column(name = "merchantlist", length = 1024)
-    private List<String> merchantlist;
+    private String merchantlist;
 
     @ManyToOne
     private Category category;
@@ -107,11 +107,11 @@ public class Product implements Serializable {
         this.categoryid = categoryid;
     }
 
-    public List<String> getImageurl() {
+    public String getImageurl() {
         return imageurl;
     }
 
-    public void setImageurl(List<String> imageurl) {
+    public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
     }
 
@@ -123,11 +123,11 @@ public class Product implements Serializable {
         this.rating = rating;
     }
 
-    public List<String> getMerchantlist() {
+    public String getMerchantlist() {
         return merchantlist;
     }
 
-    public void setMerchantlist(List<String> merchantlist) {
+    public void setMerchantlist(String merchantlist) {
         this.merchantlist = merchantlist;
     }
 

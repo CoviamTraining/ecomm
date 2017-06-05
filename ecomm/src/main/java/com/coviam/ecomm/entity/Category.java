@@ -1,6 +1,7 @@
 package com.coviam.ecomm.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by gaurav on 03/06/17.
@@ -8,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "category")
-public class Category {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

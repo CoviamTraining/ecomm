@@ -1,13 +1,14 @@
 package com.coviam.ecomm.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by gaurav on 03/06/17.
  */
 @Entity
 @Table(name = "merchant")
-public class Merchant {
+public class Merchant implements Serializable{
 
     @Id
     @Column(name = "merchantid", nullable = false)

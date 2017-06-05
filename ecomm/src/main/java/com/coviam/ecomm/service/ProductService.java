@@ -15,7 +15,9 @@ public interface ProductService {
 
     public List<Product> findByName(String name);
 
-    public Object getProductNameImageRating(Long id);
+    public Object getProductNameRating(Long id);
+
+    public List<String> getProductImages(Long id);
 
     public List<String> getMerchantList(Long id);
 

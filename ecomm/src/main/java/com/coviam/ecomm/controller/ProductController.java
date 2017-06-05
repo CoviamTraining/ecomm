@@ -35,8 +35,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/getproductimageratingname/{id}")
-    public Object getProductNameImageRating(@PathVariable Long id){
-        return productService.getProductNameImageRating(id);
+    public Object getProductNameRating(@PathVariable Long id){
+        return productService.getProductNameRating(id);
+    }
+
+    @RequestMapping(value = "/getproductimages/{id}")
+    public List<String> getImages(@PathVariable Long id){
+        return productService.getProductImages(id);
     }
 
     @RequestMapping(value = "/getmerchantlist/{id}")
