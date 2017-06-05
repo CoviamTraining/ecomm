@@ -33,10 +33,7 @@ public class Product implements Serializable {
     @Column(name = "attributes", length = 1024, nullable = false)
     private String attributes;
 
-    @Column(name = "categoryid",scale = 4, nullable = false)
-    private int categoryid;
-
-    @Column(name="imageurl",length = 50)
+    @Column(name="imageurl",length = 1024)
     private String imageurl;
 
     @Column(name = "rating", scale = 1, precision = 2)
@@ -46,6 +43,7 @@ public class Product implements Serializable {
     private String merchantlist;
 
     @ManyToOne
+    @JoinColumn(name = "categoryid")
     private Category category;
 
     public Product() {
@@ -99,14 +97,6 @@ public class Product implements Serializable {
         this.attributes = attributes;
     }
 
-    public int getCategoryid() {
-        return categoryid;
-    }
-
-    public void setCategoryid(int categoryid) {
-        this.categoryid = categoryid;
-    }
-
     public String getImageurl() {
         return imageurl;
     }
@@ -140,7 +130,6 @@ public class Product implements Serializable {
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +
                 ", attributes='" + attributes + '\'' +
-                ", categoryid=" + categoryid +
                 ", imageurl=" + imageurl +
                 ", rating=" + rating +
                 ", merchantlist=" + merchantlist +

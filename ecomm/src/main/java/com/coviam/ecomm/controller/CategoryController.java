@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by gaurav on 05/06/17.
  */
@@ -25,9 +27,15 @@ public class CategoryController {
         categoryService.addCategory(name);
     }
 
+    @RequestMapping(value = "/getAllCategory")
+    public List<Category> getAllCategory(){
+        return categoryService.getAllCategory();
+    }
+
     @RequestMapping(value = "/getcategory/{id}")
     public Category getCategory(@PathVariable Long id){
         return categoryService.getCategory(id);
     }
+
 
 }

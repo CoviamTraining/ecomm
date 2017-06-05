@@ -1,9 +1,8 @@
 package com.coviam.ecomm.service;
 
-import com.coviam.ecomm.dao.CategoryRepository;
-import com.coviam.ecomm.dao.MerchantRepository;
 import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.Product;
+import com.coviam.ecomm.entity.ProductInfoForList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public Product getProduct(Long id) {
-        return productRepository.findOne(id);
+    public Product getProduct(int id) {
+        return productRepository.findOne((long)id);
     }
 
     @Override
@@ -38,27 +37,34 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Object getProductNameRating(Long id) {
+    public ProductInfoForList getProductNameRating(int id) {
         return productRepository.getproductNameRating(id);
     }
 
     @Override
-    public List<String> getProductImages(Long id) {
+    public List<String> getProductImages(int id) {
         String images = productRepository.getImages(id);
         return Arrays.asList(images.split(","));
     }
 
     @Override
-    public List<String> getMerchantList(Long id) {
+    public List<String> getMerchantList(int id) {
         String merchants = productRepository.getMerchantList(id);
         List<String> merchantsList = Arrays.asList(merchants.split(","));
         return merchantsList;
     }
 
     @Override
-    public String getDefaultMerchant(Long id) {
+    public String getDefaultMerchant(int id) {
         String merchants = productRepository.getMerchantList(id);
         List<String> merchantsList = Arrays.asList(merchants.split(","));
         return merchantsList.get(0);
     }
+
+    @Override
+    public List<ProductInfoForList> getProductByCategory(int categoryid) {
+        return productRepository.getByCategory(categoryid);
+    }
+
+
 }
