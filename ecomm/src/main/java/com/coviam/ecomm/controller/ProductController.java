@@ -26,8 +26,8 @@ public class ProductController {
     ProductRepository productRepository;
 
     @RequestMapping(value = "/getProduct/{id}")
-    public Product getProduct(@PathVariable Long id){
-        return productService.getProduct(Math.toIntExact(id));
+    public Product getProduct(@PathVariable Integer id){
+        return productService.getProduct(id);
     }
 
     //TODO add mapping
@@ -40,9 +40,14 @@ public class ProductController {
         return productService.findByName(name);
     }
 
-    @RequestMapping(value = "/getProductNameRating/{id}")
+    @RequestMapping(value = "/getProductNameImageRating/{id}")
     public ProductInfoForList getProductNameRating(@PathVariable Long id){
-        return productService.getProductNameRating(Math.toIntExact(id));
+        return productService.getProductNameImageRating(Math.toIntExact(id));
+    }
+
+    @RequestMapping(value = "/getProductImage/{id}")
+    public String getImage(@PathVariable Long id){
+        return productService.getProductImage(Math.toIntExact(id));
     }
 
     @RequestMapping(value = "/getProductImages/{id}")
@@ -62,7 +67,7 @@ public class ProductController {
 
     @RequestMapping(value = "/testgetproductimageratingname/{id}")
     public String testgetProductNameRating(@PathVariable Long id){
-        return productService.getProductNameRating(Math.toIntExact(id)).toString();
+        return productService.getProductNameImageRating(Math.toIntExact(id)).toString();
     }
 
 

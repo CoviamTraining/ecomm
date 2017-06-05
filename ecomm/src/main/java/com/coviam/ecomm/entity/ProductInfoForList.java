@@ -5,11 +5,21 @@ package com.coviam.ecomm.entity;
  */
 public class ProductInfoForList {
     private String name;
+    private String imageurl;
     private double rating;
 
-    public ProductInfoForList(String name, double rating) {
+    public ProductInfoForList(String name, String imageurl, double rating) {
         this.name = name;
+        this.imageurl = imageurl;
         this.rating = rating;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getName() {
@@ -32,6 +42,7 @@ public class ProductInfoForList {
     public String toString() {
         return "ProductInfoForList{" +
                 "name='" + name + '\'' +
+                ", imageurl='" + imageurl + '\'' +
                 ", rating=" + rating +
                 '}';
     }

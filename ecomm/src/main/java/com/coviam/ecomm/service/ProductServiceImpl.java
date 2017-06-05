@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(int id) {
-        return productRepository.findOne((long)id);
+        return productRepository.findOne(id);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductInfoForList getProductNameRating(int id) {
-        return productRepository.getproductNameRating(id);
+    public ProductInfoForList getProductNameImageRating(int id) {
+        return productRepository.getproductNameImageRating(id);
     }
 
     @Override
@@ -64,6 +64,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductInfoForList> getProductByCategory(int categoryid) {
         return productRepository.getByCategory(categoryid);
+    }
+
+    @Override
+    public String getProductImage(int id) {
+        String images = productRepository.getImages(id);
+        return Arrays.asList(images.split(",")).get(0);
     }
 
 

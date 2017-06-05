@@ -17,7 +17,7 @@ public interface ProductService {
 
     public List<Product> findByName(String name);
 
-    public ProductInfoForList getProductNameRating(int id);
+    public ProductInfoForList getProductNameImageRating(int id);
 
     public List<String> getProductImages(int id);
 
@@ -27,4 +27,5 @@ public interface ProductService {
 
     public List<ProductInfoForList> getProductByCategory(int categoryid);
 
+    public String getProductImage(int i);
 }
