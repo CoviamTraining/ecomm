@@ -1,6 +1,8 @@
 package com.coviam.ecomm.service;
 
+import com.coviam.ecomm.dao.CategoryRepository;
 import com.coviam.ecomm.entity.Category;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,23 +11,29 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
+    @Autowired
+    CategoryRepository categoryRepository;
+
     @Override
-    public Category getCategory(int id) {
-        return null;
+    public Category getCategory(Long id) {
+        return categoryRepository.findOne(id);
     }
 
     @Override
     public Category addCategory(String name) {
-        return null;
+        Category category = new Category();
+        category.setName(name);
+        return categoryRepository.save(category);
     }
 
     @Override
-    public void deleteCategory(int id) {
-
+    public void deleteCategory(Long id) {
+        categoryRepository.delete(id);
     }
 
     @Override
     public void updateCategory(Category category) {
-
+        categoryRepository.save(category);
     }
 }

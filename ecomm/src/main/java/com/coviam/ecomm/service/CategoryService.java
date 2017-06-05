@@ -7,11 +7,11 @@ import com.coviam.ecomm.entity.Category;
  */
 public interface CategoryService {
 
-    public Category getCategory(int id);
+    public Category getCategory(Long id);
 
     public Category addCategory(String name);
 
-    public void deleteCategory(int id);
+    public void deleteCategory(Long id);
 
     public void updateCategory(Category category);
 

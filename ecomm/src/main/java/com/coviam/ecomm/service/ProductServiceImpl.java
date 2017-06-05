@@ -5,51 +5,48 @@ import com.coviam.ecomm.dao.MerchantRepository;
 import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
  * Created by gaurav on 03/06/17.
  */
+
+@Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private MerchantRepository merchantRepository;
-
 
     @Override
-    public Product getProduct(int id) {
-        return null;
+    public Product getProduct(Long id) {
+        return productRepository.findOne(id);
     }
 
     @Override
-    public boolean updatemerchantlist(Product product) {
-        return false;
+    public Product updatemerchantlist(Product product) {
+        //TODO
+        return productRepository.save(product);
     }
 
     @Override
-    public Object[] findByName(String name) {
-        return new Object[0];
+    public List<Product> findByName(String name) {
+        return productRepository.findByName(name);
     }
 
     @Override
-    public List<Object[]> getproductNameImageRating(int id) {
-        return null;
+    public Object getProductNameImageRating(Long id) {
+        return productRepository.getproductNameImageRating(Math.toIntExact(id));
     }
 
     @Override
-    public List<String> getMerchantList(int id) {
-        return null;
+    public List<String> getMerchantList(Long id) {
+        return productRepository.getMerchantList(Math.toIntExact(id));
     }
 
     @Override
-    public String getDefaultMerchant(int id) {
-        return null;
+    public String getDefaultMerchant(Long id) {
+        return productRepository.getDefaultMerchant(Math.toIntExact(id));
     }
 }

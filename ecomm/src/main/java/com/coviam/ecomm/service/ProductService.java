@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface ProductService {
 
-    public Product getProduct(int id);
+    public Product getProduct(Long id);
 
-    public boolean updatemerchantlist(Product product);
+    public Product updatemerchantlist(Product product);
 
-    public Object[] findByName(String name);
+    public List<Product> findByName(String name);
 
-    public List<Object[]> getproductNameImageRating(int id);
+    public Object getProductNameImageRating(Long id);
 
-    public List<String> getMerchantList(int id);
+    public List<String> getMerchantList(Long id);
 
-    public String getDefaultMerchant(int id);
+    public String getDefaultMerchant(Long id);
 
 }

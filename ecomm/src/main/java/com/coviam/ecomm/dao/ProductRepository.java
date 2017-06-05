@@ -15,7 +15,7 @@ public interface ProductRepository extends CrudRepository<Product,Long>{
     List<Product> findByName(String name);
 
     @Query("select p.name,p.image,p.rating from Product p where p.id = ?")
-    List<Object[]> getproductNameImageRating(int id);
+    List<Object> getproductNameImageRating(int id);
 
     @Query("select p.merchantlist from Product p where p.id = ? ")
     List<String> getMerchantList(int id);

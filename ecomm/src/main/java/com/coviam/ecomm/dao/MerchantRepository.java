@@ -10,10 +10,10 @@ import org.springframework.data.repository.CrudRepository;
 public interface MerchantRepository extends CrudRepository<Merchant, Long> {
 
     @Query("select m.name,m.logo,m.rating from Merchant m where m.id = ? ")
-    Object getMerchantNameLogoRating(int id);
+    Object getMerchantNameLogoRating(Long id);
 
     @Query("select m.productsold,m.distinctproduct from Merchant m where m.id = ? ")
-    Object getProductSoldDistinctProduct(int id);
+    Object getProductSoldDistinctProduct(Long id);
 
 
 }
