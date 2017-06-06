@@ -3,17 +3,17 @@ package com.coviam.ecomm.entity;
 /**
  * Created by gaurav on 06/06/17.
  */
-public class ProductInfoToUI {
+public class ProductInfoToListUI {
     private int productid;
     private String name;
     private String imageurl;
     private double rating;
     private double price;
 
-    public ProductInfoToUI() {
+    public ProductInfoToListUI() {
     }
 
-    public ProductInfoToUI(String name, String imageurl, double rating, double price) {
+    public ProductInfoToListUI(String name, String imageurl, double rating, double price) {
         this.name = name;
         this.imageurl = imageurl;
         this.rating = rating;

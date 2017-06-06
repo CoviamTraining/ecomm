@@ -2,8 +2,7 @@ package com.coviam.ecomm.service;
 
 import com.coviam.ecomm.entity.Product;
 import com.coviam.ecomm.entity.ProductInfoForList;
-import com.coviam.ecomm.entity.ProductInfoToUI;
-import org.w3c.dom.ls.LSException;
+import com.coviam.ecomm.entity.ProductInfoToListUI;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ public interface ProductService {
 
     public String getDefaultMerchant(int id);
 
-    public List<ProductInfoToUI> getProductByCategory(int categoryid);
+    public List<ProductInfoToListUI> getProductByCategory(int categoryid);
 
     public String getProductImage(int i);
 }
