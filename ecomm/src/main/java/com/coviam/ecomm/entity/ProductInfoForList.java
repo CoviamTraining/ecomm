@@ -4,14 +4,24 @@ package com.coviam.ecomm.entity;
  * Created by gaurav on 05/06/17.
  */
 public class ProductInfoForList {
+    private int productid;
     private String name;
     private String imageurl;
     private double rating;
 
-    public ProductInfoForList(String name, String imageurl, double rating) {
+    public ProductInfoForList(int productid, String name, String imageurl, double rating) {
+        this.productid = productid;
         this.name = name;
         this.imageurl = imageurl;
         this.rating = rating;
+    }
+
+    public int getProductid() {
+        return productid;
+    }
+
+    public void setProductid(int productid) {
+        this.productid = productid;
     }
 
     public String getImageurl() {
@@ -41,9 +51,11 @@ public class ProductInfoForList {
     @Override
     public String toString() {
         return "ProductInfoForList{" +
-                "name='" + name + '\'' +
+                "productid=" + productid +
+                ", name='" + name + '\'' +
                 ", imageurl='" + imageurl + '\'' +
                 ", rating=" + rating +
                 '}';
     }
+
 }

@@ -3,6 +3,7 @@ package com.coviam.ecomm.controller;
 import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.Product;
 import com.coviam.ecomm.entity.ProductInfoForList;
+import com.coviam.ecomm.entity.ProductInfoToUI;
 import com.coviam.ecomm.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -31,12 +32,12 @@ public class ProductController {
     }
 
     //TODO add mapping
-    public Product updatemerchantlist(Product product){
+    public Product updateMerchantList(Product product){
         return productService.updatemerchantlist(product);
     }
 
     @RequestMapping(value = "/getProductbyName/{name}")
-    public List<Product> getproductbyname(@PathVariable String name){
+    public List<Product> getProductByName(@PathVariable String name){
         return productService.findByName(name);
     }
 
@@ -70,10 +71,8 @@ public class ProductController {
         return productService.getProductNameImageRating(Math.toIntExact(id)).toString();
     }
 
-
-
     @RequestMapping(value = "/getProductByCategory/{categoryid}")
-    public List<ProductInfoForList> getProductByCategory(@PathVariable("categoryid") Long categoryid){
+    public List<ProductInfoToUI> getProductByCategory(@PathVariable("categoryid") Long categoryid){
         return productService.getProductByCategory(Math.toIntExact(categoryid));
     }
 

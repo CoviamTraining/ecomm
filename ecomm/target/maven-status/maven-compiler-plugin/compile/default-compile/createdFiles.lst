@@ -6,6 +6,7 @@ com/coviam/ecomm/entity/ProductInfoForList.class
 com/coviam/ecomm/service/CategoryService.class
 com/coviam/ecomm/EcommApplication.class
 com/coviam/ecomm/entity/Category.class
+com/coviam/ecomm/entity/ProductInfoToUI.class
 com/coviam/ecomm/controller/CategoryController.class
 com/coviam/ecomm/dao/ProductRepository.class
 com/coviam/ecomm/service/ProductService.class
