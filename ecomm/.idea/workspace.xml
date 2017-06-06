@@ -19,8 +19,8 @@
       <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="27" />
+            <state relative-caret-position="370">
+              <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Product#0;class#Product#0" expanded="false" />
@@ -30,13 +30,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/controller/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+            <state relative-caret-position="153">
+              <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1027#1028#0" expanded="true" />
                 <element signature="method#getProductNameRating#0;class#ProductController#0" expanded="false" />
                 <element signature="method#getImages#0;class#ProductController#0" expanded="false" />
                 <element signature="method#getMerchantList#0;class#ProductController#0" expanded="false" />
@@ -48,23 +50,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductInfoForList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoForList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="26" />
+            <state relative-caret-position="313">
+              <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
               <folding>
-                <element signature="method#toString#0;class#ProductInfoForList#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#getProduct#0;class#ProductServiceImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,22 +66,10 @@
       <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductInfoToListUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoToListUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="210">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding>
-                <element signature="method#ProductInfoToListUI#0;class#ProductInfoToListUI#0" expanded="false" />
-                <element signature="method#ProductInfoToListUI#1;class#ProductInfoToListUI#0" expanded="false" />
-                <element signature="method#toString#0;class#ProductInfoToListUI#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,10 +129,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/controller/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoForList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/dao/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoToUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/OtherMerchantToOffer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductRatingReview.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductOnDetailPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/dao/ProductRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/controller/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductServiceImpl.java" />
       </list>
     </option>
@@ -813,12 +797,12 @@
       <option name="presentableId" value="Default" />
       <updated>1496471111367</updated>
       <workItem from="1496471112992" duration="12910000" />
-      <workItem from="1496640366568" duration="38151000" />
+      <workItem from="1496640366568" duration="43715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51061000" />
+    <option name="totallyTimeSpent" value="56625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="772" extended-state="6" />
@@ -864,7 +848,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1105,24 +1089,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/Product.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductRatingReview.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="27" />
+        <state relative-caret-position="270">
+          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Product#0;class#Product#0" expanded="false" />
-            <element signature="method#toString#0;class#Product#0" expanded="false" />
+            <element signature="docComment;class#ProductRatingReview#0" expanded="false" />
+            <element signature="method#ProductRatingReview#0;class#ProductRatingReview#0" expanded="false" />
+            <element signature="method#toString#0;class#ProductRatingReview#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/dao/ProductRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/OtherMerchantToOffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="79" lean-forward="false" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+        <state relative-caret-position="405">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="method#OtherMerchantToOffer#0;class#OtherMerchantToOffer#0" expanded="false" />
+            <element signature="method#toString#0;class#OtherMerchantToOffer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoForList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="26" />
+          <folding>
+            <element signature="method#toString#0;class#ProductInfoForList#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductOnDetailPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+          <folding>
+            <element signature="method#ProductOnDetailPage#0;class#ProductOnDetailPage#0" expanded="false" />
+            <element signature="method#setOtherMerchantToOffer#0;class#ProductOnDetailPage#0" expanded="false" />
+            <element signature="method#setProductRatingReviews#0;class#ProductOnDetailPage#0" expanded="false" />
+            <element signature="method#toString#0;class#ProductOnDetailPage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Product#0;class#Product#0" expanded="false" />
+            <element signature="method#toString#0;class#Product#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1141,42 +1161,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/entity/ProductInfoForList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="26" />
+        <state relative-caret-position="210">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
-            <element signature="method#toString#0;class#ProductInfoForList#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/dao/ProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding />
+        <state relative-caret-position="285">
+          <caret line="19" column="79" lean-forward="false" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="75" column="32" lean-forward="true" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+        <state relative-caret-position="153">
+          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
             <element signature="method#getProductNameRating#0;class#ProductController#0" expanded="false" />
             <element signature="method#getImages#0;class#ProductController#0" expanded="false" />
             <element signature="method#getMerchantList#0;class#ProductController#0" expanded="false" />
             <element signature="method#getDefaultMerchant#0;class#ProductController#0" expanded="false" />
             <element signature="method#testgetProductNameRating#0;class#ProductController#0" expanded="false" />
             <element signature="method#testgetProductByCategory#0;class#ProductController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coviam/ecomm/service/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getProduct#0;class#ProductServiceImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -3,6 +3,7 @@ package com.coviam.ecomm.service;
 import com.coviam.ecomm.entity.Product;
 import com.coviam.ecomm.entity.ProductInfoForList;
 import com.coviam.ecomm.entity.ProductInfoToListUI;
+import com.coviam.ecomm.entity.ProductOnDetailPage;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface ProductService {
 
-    public Product getProduct(int id);
+    public ProductOnDetailPage getProduct(int id);
 
     public Product updatemerchantlist(Product product);
 

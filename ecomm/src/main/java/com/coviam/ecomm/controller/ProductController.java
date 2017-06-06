@@ -4,6 +4,7 @@ import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.Product;
 import com.coviam.ecomm.entity.ProductInfoForList;
 import com.coviam.ecomm.entity.ProductInfoToListUI;
+import com.coviam.ecomm.entity.ProductOnDetailPage;
 import com.coviam.ecomm.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -27,9 +28,10 @@ public class ProductController {
     ProductRepository productRepository;
 
     @RequestMapping(value = "/getProduct/{id}")
-    public Product getProduct(@PathVariable Integer id){
+    public ProductOnDetailPage getProduct(@PathVariable Integer id){
         return productService.getProduct(id);
     }
+
 
     //TODO add mapping
     public Product updateMerchantList(Product product){
