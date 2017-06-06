@@ -4,18 +4,34 @@ package com.coviam.ecomm.entity;
  * Created by gaurav on 06/06/17.
  */
 public class OtherMerchantToOffer {
-    private int price;
+    private double price;
     private String name;
+    private String logo;
     private double rating;
 
     public OtherMerchantToOffer() {
     }
 
-    public int getPrice() {
+    public OtherMerchantToOffer(double price, String name, String logo, double rating) {
+        this.price = price;
+        this.name = name;
+        this.logo = logo;
+        this.rating = rating;
+    }
+
+    public String getImageurl() {
+        return logo;
+    }
+
+    public void setImageurl(String logo) {
+        this.logo = logo;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

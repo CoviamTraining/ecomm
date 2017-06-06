@@ -14,7 +14,7 @@ public interface ProductService {
 
     public ProductOnDetailPage getProduct(int id);
 
-    public Product updatemerchantlist(Product product);
+    public Product updatemerchantlist(int productId);
 
     public List<Product> findByName(String name);
 
@@ -29,4 +29,9 @@ public interface ProductService {
     public List<ProductInfoToListUI> getProductByCategory(int categoryid);
 
     public String getProductImage(int i);
+
+    public List<Product> findByNameIgnoreCase(String name);
+
+    public List<Product> findByNameContainingSubString(String name);
+
 }

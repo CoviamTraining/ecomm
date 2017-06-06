@@ -17,6 +17,10 @@ public interface ProductRepository extends CrudRepository<Product,Integer>{
 
     List<Product> findByName(String name);
 
+    List<Product> findByNameContainingIgnoreCase(String name);
+
+    List<Product> findByNameIgnoreCase(String name);
+
     @Query("select new com.coviam.ecomm.entity.ProductInfoForList(p.productid, p.name,p.imageurl,p.rating) from Product p where p.productid = :id")
     ProductInfoForList getproductNameImageRating(@Param("id") int id);
 

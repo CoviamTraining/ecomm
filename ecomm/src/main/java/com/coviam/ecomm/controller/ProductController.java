@@ -32,15 +32,14 @@ public class ProductController {
         return productService.getProduct(id);
     }
 
-
-    //TODO add mapping
-    public Product updateMerchantList(Product product){
-        return productService.updatemerchantlist(product);
+    @RequestMapping(value = "/updateMerchantList/{productId}")
+    public Product updateMerchantList(@PathVariable int productId){
+       return productService.updatemerchantlist(productId);
     }
 
-    @RequestMapping(value = "/getProductbyName/{name}")
-    public List<Product> getProductByName(@PathVariable String name){
-        return productService.findByName(name);
+    @RequestMapping(value = "/getProductByNameSubString/{name}")
+    public List<Product> getProductByNameSubString(@PathVariable String name){
+        return productService.findByNameContainingSubString(name);
     }
 
     @RequestMapping(value = "/getProductNameImageRating/{id}")
@@ -68,19 +67,13 @@ public class ProductController {
         return productService.getDefaultMerchant(Math.toIntExact(id));
     }
 
-    @RequestMapping(value = "/testgetproductimageratingname/{id}")
-    public String testgetProductNameRating(@PathVariable Long id){
-        return productService.getProductNameImageRating(Math.toIntExact(id)).toString();
-    }
-
     @RequestMapping(value = "/getProductByCategory/{categoryid}")
     public List<ProductInfoToListUI> getProductByCategory(@PathVariable("categoryid") Long categoryid){
         return productService.getProductByCategory(Math.toIntExact(categoryid));
     }
 
-    @RequestMapping(value = "/testgetProductByCategory/{categoryid}")
-    public String testgetProductByCategory(@PathVariable("categoryid") Long categoryid){
-        return " " + productService.getProductByCategory(Math.toIntExact(categoryid)).size();
+    @RequestMapping(value = "/getProductByNameIgnoreCase/{name}")
+    List<Product> getProductByNameIgnoreCase(@PathVariable String name){
+        return productService.findByNameIgnoreCase(name);
     }
-
 }

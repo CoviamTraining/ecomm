@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.coviam.ecomm.EcommApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.96 sec - in com.coviam.ecomm.EcommApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.023 sec - in com.coviam.ecomm.EcommApplicationTests
