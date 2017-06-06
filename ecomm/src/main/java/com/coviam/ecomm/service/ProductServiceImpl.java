@@ -4,6 +4,7 @@ import com.coviam.ecomm.dao.ProductRepository;
 import com.coviam.ecomm.entity.*;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,12 @@ public class ProductServiceImpl implements ProductService {
 
     private RestTemplate restTemplate = new RestTemplate();
 
+    @Value("${inventoryUri}")
+    String inventoryUri;
+
+    @Value("${merchantUri}")
+    String merchantUri;
+
     @Override
     public ProductOnDetailPage getProduct(int id) {
         Product product = productRepository.findOne(id);
@@ -41,28 +48,23 @@ public class ProductServiceImpl implements ProductService {
         productOnDetailPage.setUsp(product.getUsp());
 
         List<String> merchants = Arrays.asList(product.getMerchantlist().split(","));
-        String merchantUri = "http://172.16.20.10:8090/getMerchantNameLogoRating/";
-        String priceUri = "http://172.16.20.13:8090/getprice/";
         ArrayList<OtherMerchantToOffer> otherMerchantToOffers = new ArrayList<>();
         for(String merchant : merchants){
-            MerchantInfoNameLogoRating merchantInfoNameLogoRating = restTemplate.getForObject(merchantUri+merchant,
-                    MerchantInfoNameLogoRating.class);
+            MerchantInfoNameLogoRating merchantInfoNameLogoRating = restTemplate.getForObject(merchantUri+"getMerchantNameLogoRating/"
+                            +merchant, MerchantInfoNameLogoRating.class);
 
             OtherMerchantToOffer otherMerchantToOffer = new OtherMerchantToOffer();
 
             otherMerchantToOffer.setName( merchantInfoNameLogoRating.getName() );
             otherMerchantToOffer.setRating( merchantInfoNameLogoRating.getRating() );
             otherMerchantToOffer.setImageurl( merchantInfoNameLogoRating.getLogo() );
-
-            String price = restTemplate.getForObject(priceUri+product.getProductid()+"/"+merchant,String.class);
+            String price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+merchant,String.class);
             otherMerchantToOffer.setPrice(Double.parseDouble(price));
             otherMerchantToOffers.add(otherMerchantToOffer);
         }
         productOnDetailPage.setOtherMerchantToOffer(otherMerchantToOffers);
 
-
-        String productReviewUri = "http://172.16.20.13:8090/getproductfeedback/";
-        ResponseEntity<List<ProductRatingReview>> responseEntity = restTemplate.exchange(productReviewUri + id, HttpMethod.GET,
+        ResponseEntity<List<ProductRatingReview>> responseEntity = restTemplate.exchange(inventoryUri+"getproductfeedback/"+ id, HttpMethod.GET,
                 null, new ParameterizedTypeReference<List<ProductRatingReview>>() {});
         List<ProductRatingReview> productReviewsObject = responseEntity.getBody();
         List <ProductRatingReview> productRatingReviews = (List<ProductRatingReview>)(Object) productReviewsObject ;
@@ -76,22 +78,17 @@ public class ProductServiceImpl implements ProductService {
     public Product updatemerchantlist( int productId) {
         Product product = productRepository.findOne(productId);
 
-        String merchantUri = "http://172.16.20.10:8090/getSoldAndDistinctProduct/";
-        String stockUri = "http://172.16.20.13:8090/getstock/";
-        String priceUri = "http://172.16.20.13:8090/getprice/";
-        String avgRatingUri = "http://172.16.20.13:8090/getavgrating/";
-
         ArrayList<Pair<String , Double >> merchantScore = new ArrayList<>();
         List<String> merchantList = getMerchantList(product.getProductid());
 
         // number of distinct products merchant offer to sell and product sold
         for (String merchant : merchantList){
-            MerchantInforSoldDistinctRating merchantInforSoldDistinct = restTemplate.getForObject(merchantUri+merchant,
+            MerchantInforSoldDistinctRating merchantInforSoldDistinct = restTemplate.getForObject(merchantUri+"getSoldAndDistinctProduct/"+merchant,
                     MerchantInforSoldDistinctRating.class);
 
-            int stock = restTemplate.getForObject(stockUri+product.getProductid()+"/"+merchant,Integer.class);
-            int price = restTemplate.getForObject(priceUri+product.getProductid()+"/"+merchant,Integer.class);
-            double avg_rating = restTemplate.getForObject(avgRatingUri+merchant,Double.class);
+            int stock = restTemplate.getForObject(inventoryUri+"getstock/"+product.getProductid()+"/"+merchant,Integer.class);
+            int price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+merchant,Integer.class);
+            double avg_rating = restTemplate.getForObject(inventoryUri+"getAvgRating/"+merchant,Double.class);
 
             double score = 0;
             if(stock == 0){
@@ -171,12 +168,10 @@ public class ProductServiceImpl implements ProductService {
 
             String merchantId = getDefaultMerchant(productInfoForList1.getProductid());
 
-            String merchantUri = "http://172.16.20.13:8090/getprice/"+productInfoForList1.getProductid()+"/"+
-                    merchantId;
+            int price = restTemplate.getForObject(inventoryUri+"getprice/"+productInfoForList1.getProductid()+"/"+
+                    merchantId,Integer.class);
 
-            String price = restTemplate.getForObject(merchantUri,String.class);
-
-            productInfoToUITemp.setPrice(Double.parseDouble(price));
+            productInfoToUITemp.setPrice(price);
 
             productInfoToUI.add(productInfoToUITemp);
         }
