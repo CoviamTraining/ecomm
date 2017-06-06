@@ -30,8 +30,8 @@ public interface ProductService {
 
     public String getProductImage(int i);
 
-    public List<Product> findByNameIgnoreCase(String name);
+    public List<ProductInfoToListUI> findByNameIgnoreCase(String name);
 
-    public List<Product> findByNameContainingSubString(String name);
+    public List<ProductInfoToListUI> findByNameContainingSubString(String name);
 
 }

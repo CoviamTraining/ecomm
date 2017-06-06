@@ -66,9 +66,9 @@ public class ProductServiceImpl implements ProductService {
 
         ResponseEntity<List<ProductRatingReview>> responseEntity = restTemplate.exchange(inventoryUri+"getproductfeedback/"+ id, HttpMethod.GET,
                 null, new ParameterizedTypeReference<List<ProductRatingReview>>() {});
-        List<ProductRatingReview> productReviewsObject = responseEntity.getBody();
-        List <ProductRatingReview> productRatingReviews = (List<ProductRatingReview>)(Object) productReviewsObject ;
-        productOnDetailPage.setProductRatingReviews(productReviewsObject);
+        List<ProductRatingReview> productReviewsList = responseEntity.getBody();
+  //      List <ProductRatingReview> productRatingReviews = (List<ProductRatingReview>)(Object) productReviewsList ;
+        productOnDetailPage.setProductRatingReviews(productReviewsList);
 
         return productOnDetailPage;
     }
@@ -186,14 +186,36 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findByNameIgnoreCase(String name ){
-        return productRepository.findByNameIgnoreCase(name);
+    public List<ProductInfoToListUI> findByNameIgnoreCase(String name ){
+        List<Product> products = productRepository.findByNameIgnoreCase(name);
+        return toProductInfoToListUI(products);
     }
 
     @Override
-    public List<Product> findByNameContainingSubString(String name) {
-        return productRepository.findByNameContainingIgnoreCase(name);
+    public List<ProductInfoToListUI> findByNameContainingSubString(String name) {
+        List<Product> products = productRepository.findByNameContainingIgnoreCase(name);
+        return toProductInfoToListUI(products);
     }
 
+    public List<ProductInfoToListUI> toProductInfoToListUI(List<Product> products){
+        List<ProductInfoToListUI> productInfoToListUIS = new ArrayList<>();
+
+        ProductInfoToListUI productInfoToUITemp = new ProductInfoToListUI();
+        for (Product product : products){
+            productInfoToUITemp.setProductid(product.getProductid());
+            productInfoToUITemp.setName(product.getName());
+            productInfoToUITemp.setImageurl(product.getImageurl());
+            productInfoToUITemp.setRating(product.getRating());
+            String merchantId = getDefaultMerchant(product.getProductid());
+
+            int price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+
+                    merchantId,Integer.class);
+            productInfoToUITemp.setPrice(price);
+
+            productInfoToListUIS.add(productInfoToUITemp);
+        }
+
+        return productInfoToListUIS;
+    }
 
 }

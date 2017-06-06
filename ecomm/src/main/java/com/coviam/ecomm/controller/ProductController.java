@@ -38,8 +38,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/getProductByNameSubString/{name}")
-    public List<Product> getProductByNameSubString(@PathVariable String name){
+    public List<ProductInfoToListUI> getProductByNameSubString(@PathVariable String name){
         return productService.findByNameContainingSubString(name);
+    }
+
+    @RequestMapping(value = "/getProductByNameIgnoreCase/{name}")
+    List<ProductInfoToListUI> getProductByNameIgnoreCase(@PathVariable String name){
+        return productService.findByNameIgnoreCase(name);
     }
 
     @RequestMapping(value = "/getProductNameImageRating/{id}")
@@ -72,8 +77,4 @@ public class ProductController {
         return productService.getProductByCategory(Math.toIntExact(categoryid));
     }
 
-    @RequestMapping(value = "/getProductByNameIgnoreCase/{name}")
-    List<Product> getProductByNameIgnoreCase(@PathVariable String name){
-        return productService.findByNameIgnoreCase(name);
-    }
 }
