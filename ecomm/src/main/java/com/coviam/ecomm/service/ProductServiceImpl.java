@@ -99,7 +99,8 @@ public class ProductServiceImpl implements ProductService {
             if(stock == 0){
                 score = -1000;
             }else{
-                score = avg_rating + merchantInforSoldDistinctRating.getRating() + 100/price ;
+                score = avg_rating + merchantInforSoldDistinctRating.getRating() + 100000/price +
+                        merchantInforSoldDistinctRating.getDistinctproduct()/30 + merchantInforSoldDistinctRating.getProductsold()/100;
             }
 
             merchantScore.add(new Pair<>(merchant,score));

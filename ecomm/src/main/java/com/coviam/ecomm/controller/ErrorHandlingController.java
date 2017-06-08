@@ -15,7 +15,7 @@ public class ErrorHandlingController {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Integer> internalServeException(){
-        return new ResponseEntity<Integer>(29,HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<Integer>(1000,HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    
+
 }
