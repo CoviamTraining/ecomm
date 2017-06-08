@@ -56,18 +56,23 @@ public class ProductServiceImpl implements ProductService {
             OtherMerchantToOffer otherMerchantToOffer = new OtherMerchantToOffer();
 
             otherMerchantToOffer.setName( merchantInfoNameLogoRating.getName() );
+            otherMerchantToOffer.setMerchantId(Integer.parseInt(merchant));
             otherMerchantToOffer.setRating( merchantInfoNameLogoRating.getRating() );
-            otherMerchantToOffer.setImageurl( merchantInfoNameLogoRating.getLogo() );
+            otherMerchantToOffer.setLogo( merchantInfoNameLogoRating.getLogo() );
+
             String price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+merchant,String.class);
+            if (price == null){
+                continue;
+            }
             otherMerchantToOffer.setPrice(Double.parseDouble(price));
+
             otherMerchantToOffers.add(otherMerchantToOffer);
         }
         productOnDetailPage.setOtherMerchantToOffer(otherMerchantToOffers);
 
-        ResponseEntity<List<ProductRatingReview>> responseEntity = restTemplate.exchange(inventoryUri+"getproductfeedback/"+ id, HttpMethod.GET,
+        ResponseEntity<List<ProductRatingReview>> responseEntity = restTemplate.exchange(inventoryUri+"getproductfeedback/"+ id+"/"+merchants.get(0), HttpMethod.GET,
                 null, new ParameterizedTypeReference<List<ProductRatingReview>>() {});
         List<ProductRatingReview> productReviewsList = responseEntity.getBody();
-  //      List <ProductRatingReview> productRatingReviews = (List<ProductRatingReview>)(Object) productReviewsList ;
         productOnDetailPage.setProductRatingReviews(productReviewsList);
 
         return productOnDetailPage;
@@ -83,18 +88,18 @@ public class ProductServiceImpl implements ProductService {
 
         // number of distinct products merchant offer to sell and product sold
         for (String merchant : merchantList){
-            MerchantInforSoldDistinctRating merchantInforSoldDistinct = restTemplate.getForObject(merchantUri+"getSoldAndDistinctProduct/"+merchant,
+            MerchantInforSoldDistinctRating merchantInforSoldDistinctRating = restTemplate.getForObject(merchantUri+"getSoldAndDistinctProduct/"+merchant,
                     MerchantInforSoldDistinctRating.class);
 
-            int stock = restTemplate.getForObject(inventoryUri+"getstock/"+product.getProductid()+"/"+merchant,Integer.class);
-            int price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+merchant,Integer.class);
-            double avg_rating = restTemplate.getForObject(inventoryUri+"getAvgRating/"+merchant,Double.class);
+            double stock = restTemplate.getForObject(inventoryUri+"getstock/"+product.getProductid()+"/"+merchant,Double.class);
+            double price = restTemplate.getForObject(inventoryUri+"getprice/"+product.getProductid()+"/"+merchant,Double.class);
+            double avg_rating = restTemplate.getForObject(inventoryUri+"getAvgRating/"+merchant+"/"+product.getProductid(),Double.class);
 
             double score = 0;
             if(stock == 0){
                 score = -1000;
             }else{
-                score = avg_rating + merchantInforSoldDistinct.getRating() + 100/price ;
+                score = avg_rating + merchantInforSoldDistinctRating.getRating() + 100/price ;
             }
 
             merchantScore.add(new Pair<>(merchant,score));
@@ -105,18 +110,19 @@ public class ProductServiceImpl implements ProductService {
             @Override
             public int compare(Pair<String, Double> o1, Pair<String, Double> o2) {
 
-                if (o1.getValue() > o2.getValue()){
+                if (o1.getValue() < o2.getValue()){
                     return 1;
                 }else{
                     return -1;
                 }
             }
         });
-        merchantList.clear();
+        List<String> updatedMerchantList = new ArrayList<>();
         for(Pair<String,Double> pair : merchantScore ){
-            merchantList.add(pair.getKey());
+            updatedMerchantList.add(pair.getKey());
+            System.out.println("+========+++" +pair.getKey() +"+++++====== score " + pair.getValue());
         }
-        product.setMerchantlist(String.join(",",merchantList));
+        product.setMerchantlist(String.join(",",updatedMerchantList));
 
         return productRepository.save(product);
     }
@@ -167,7 +173,6 @@ public class ProductServiceImpl implements ProductService {
             productInfoToUITemp.setRating(productInfoForList1.getRating());
 
             String merchantId = getDefaultMerchant(productInfoForList1.getProductid());
-
             int price = restTemplate.getForObject(inventoryUri+"getprice/"+productInfoForList1.getProductid()+"/"+
                     merchantId,Integer.class);
 
@@ -194,14 +199,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductInfoToListUI> findByNameContainingSubString(String name) {
         List<Product> products = productRepository.findByNameContainingIgnoreCase(name);
+
         return toProductInfoToListUI(products);
     }
 
     public List<ProductInfoToListUI> toProductInfoToListUI(List<Product> products){
         List<ProductInfoToListUI> productInfoToListUIS = new ArrayList<>();
 
-        ProductInfoToListUI productInfoToUITemp = new ProductInfoToListUI();
         for (Product product : products){
+            ProductInfoToListUI productInfoToUITemp = new ProductInfoToListUI();
             productInfoToUITemp.setProductid(product.getProductid());
             productInfoToUITemp.setName(product.getName());
             productInfoToUITemp.setImageurl(product.getImageurl());

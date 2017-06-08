@@ -17,7 +17,7 @@ public interface ProductRepository extends CrudRepository<Product,Integer>{
 
     List<Product> findByName(String name);
 
-    List<Product> findByNameContainingIgnoreCase(String name);
+    List<Product> findByNameContainingIgnoreCase(@Param("name") String name);
 
     List<Product> findByNameIgnoreCase(String name);
 
@@ -36,6 +36,5 @@ public interface ProductRepository extends CrudRepository<Product,Integer>{
     @Query("select new com.coviam.ecomm.entity.ProductInfoForList(p.productid, p.name,p.imageurl,p.rating) " +
             "from Product p left join p.category c where  c.categoryid = :categoryid")
     List<ProductInfoForList> getByCategory(@Param("categoryid") int categoryid);
-
 
 }

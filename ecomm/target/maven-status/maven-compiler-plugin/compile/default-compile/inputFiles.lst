@@ -5,6 +5,7 @@
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/entity/MerchantInforSoldDistinctRating.java
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/entity/ProductOnDetailPage.java
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/controller/CategoryController.java
+/Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/controller/ErrorHandlingController.java
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/entity/ProductRatingReview.java
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/service/CategoryServiceImpl.java
 /Users/gaurav/ecomm/ecomm/src/main/java/com/coviam/ecomm/controller/ProductController.java

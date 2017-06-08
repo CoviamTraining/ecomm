@@ -12,6 +12,7 @@ com/coviam/ecomm/EcommApplication.class
 com/coviam/ecomm/entity/Category.class
 com/coviam/ecomm/service/ProductServiceImpl$1.class
 com/coviam/ecomm/controller/CategoryController.class
+com/coviam/ecomm/controller/ErrorHandlingController.class
 com/coviam/ecomm/entity/MerchantInforSoldDistinctRating.class
 com/coviam/ecomm/dao/ProductRepository.class
 com/coviam/ecomm/entity/ProductRatingReview.class

@@ -33,8 +33,9 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/updateMerchantList/{productId}")
-    public Product updateMerchantList(@PathVariable int productId){
-       return productService.updatemerchantlist(productId);
+    public String updateMerchantList(@PathVariable int productId){
+       productService.updatemerchantlist(productId);
+        return "SuccessFully Updated";
     }
 
     @RequestMapping(value = "/getProductByNameSubString/{name}")
