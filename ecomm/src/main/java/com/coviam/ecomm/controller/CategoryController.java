@@ -1,6 +1,5 @@
 package com.coviam.ecomm.controller;
 
-import com.coviam.ecomm.dao.CategoryRepository;
 import com.coviam.ecomm.entity.Category;
 import com.coviam.ecomm.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,13 +1,11 @@
 package com.coviam.ecomm.controller;
 
 import com.coviam.ecomm.dao.ProductRepository;
-import com.coviam.ecomm.entity.Product;
-import com.coviam.ecomm.entity.ProductInfoForList;
-import com.coviam.ecomm.entity.ProductInfoToListUI;
-import com.coviam.ecomm.entity.ProductOnDetailPage;
+import com.coviam.ecomm.dto.ProductInfoForList;
+import com.coviam.ecomm.dto.ProductInfoToListUI;
+import com.coviam.ecomm.dto.ProductOnDetailPage;
 import com.coviam.ecomm.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

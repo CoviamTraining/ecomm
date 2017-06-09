@@ -1,9 +1,9 @@
 package com.coviam.ecomm.service;
 
 import com.coviam.ecomm.entity.Product;
-import com.coviam.ecomm.entity.ProductInfoForList;
-import com.coviam.ecomm.entity.ProductInfoToListUI;
-import com.coviam.ecomm.entity.ProductOnDetailPage;
+import com.coviam.ecomm.dto.ProductInfoForList;
+import com.coviam.ecomm.dto.ProductInfoToListUI;
+import com.coviam.ecomm.dto.ProductOnDetailPage;
 
 import java.util.List;
 
