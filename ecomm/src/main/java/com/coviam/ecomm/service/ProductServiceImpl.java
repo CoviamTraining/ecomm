@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
+
 /**
  * Created by gaurav on 03/06/17.
  */
@@ -86,7 +87,6 @@ public class ProductServiceImpl implements ProductService {
         ArrayList<Pair<String , Double >> merchantScore = new ArrayList<>();
         List<String> merchantList = getMerchantList(product.getProductid());
 
-        // number of distinct products merchant offer to sell and product sold
         for (String merchant : merchantList){
             MerchantInforSoldDistinctRating merchantInforSoldDistinctRating = restTemplate.getForObject(merchantUri+"getSoldAndDistinctProduct/"+merchant,
                     MerchantInforSoldDistinctRating.class);
