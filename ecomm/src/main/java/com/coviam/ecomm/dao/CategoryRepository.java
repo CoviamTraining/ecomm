@@ -11,6 +11,5 @@ import java.util.List;
  */
 public interface CategoryRepository extends CrudRepository<Category,Long> {
 
-    @Query("select c from Category c")
-    List<Category> getAllCategory();
+    List<Category> findAll();
 }
