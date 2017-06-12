@@ -79,14 +79,13 @@ public class ProductServiceImpl implements ProductService {
         return productOnDetailPage;
     }
 
-    // TODO
     @Override
     public Product updatemerchantlist( int productId) {
         Product product = productRepository.findOne(productId);
 
         ArrayList<Pair<String , Double >> merchantScore = new ArrayList<>();
         List<String> merchantList = getMerchantList(product.getProductid());
-
+        int countMerchant = 0;
         for (String merchant : merchantList){
             MerchantInforSoldDistinctRating merchantInforSoldDistinctRating = restTemplate.getForObject(merchantUri+"getSoldAndDistinctProduct/"+merchant,
                     MerchantInforSoldDistinctRating.class);
@@ -96,8 +95,10 @@ public class ProductServiceImpl implements ProductService {
             double avg_rating = restTemplate.getForObject(inventoryUri+"getAvgRating/"+merchant+"/"+product.getProductid(),Double.class);
 
             double score = 0;
+
             if(stock == 0){
                 score = -1000;
+                countMerchant++;
             }else{
                 score = avg_rating + merchantInforSoldDistinctRating.getRating() + 100000/price +
                         merchantInforSoldDistinctRating.getDistinctproduct()/30 + merchantInforSoldDistinctRating.getProductsold()/100;
@@ -106,6 +107,14 @@ public class ProductServiceImpl implements ProductService {
             merchantScore.add(new Pair<>(merchant,score));
         }
 
+        if(countMerchant!=merchantList.size()){
+            int size = merchantScore.size();
+            for(Pair<String,Double> score : merchantScore){
+                if(score.getValue() == -1000.0){
+                    merchantScore.remove(score);
+                }
+            }
+        }
 
         Collections.sort(merchantScore, new Comparator<Pair<String, Double>>() {
             @Override
@@ -118,16 +127,15 @@ public class ProductServiceImpl implements ProductService {
                 }
             }
         });
+
         List<String> updatedMerchantList = new ArrayList<>();
         for(Pair<String,Double> pair : merchantScore ){
             updatedMerchantList.add(pair.getKey());
-            System.out.println("+========+++" +pair.getKey() +"+++++====== score " + pair.getValue());
         }
         product.setMerchantlist(String.join(",",updatedMerchantList));
 
         return productRepository.save(product);
     }
-
 
     @Override
     public List<Product> findByName(String name) {
@@ -203,6 +211,16 @@ public class ProductServiceImpl implements ProductService {
 
         return toProductInfoToListUI(products);
     }
+
+    @Override
+    public String addToMerchantList(int productId, int merchantId) {
+        Product product = productRepository.findOne(productId);
+        String merchantList = product.getMerchantlist();
+        product.setMerchantlist(merchantList+","+merchantId);
+        productRepository.save(product);
+        return product.toString() ;
+    }
+
 
     public List<ProductInfoToListUI> toProductInfoToListUI(List<Product> products){
         List<ProductInfoToListUI> productInfoToListUIS = new ArrayList<>();

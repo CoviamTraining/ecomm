@@ -75,4 +75,8 @@ public class ProductController {
         return productService.getProductByCategory(Math.toIntExact(categoryid));
     }
 
+    @RequestMapping(value = "/addMerchant/{productId}/{merchantId}")
+    public String addMerchant(@PathVariable int productId, @PathVariable int merchantId){
+        return productService.addToMerchantList(productId,merchantId);
+    }
 }

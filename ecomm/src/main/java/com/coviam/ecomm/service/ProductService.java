@@ -34,4 +34,5 @@ public interface ProductService {
 
     public List<ProductInfoToListUI> findByNameContainingSubString(String name);
 
+    public String addToMerchantList(int productId, int merchantId);
 }
